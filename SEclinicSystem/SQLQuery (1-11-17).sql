@@ -1,7 +1,7 @@
 USE [master]
 GO
 
-/****** Object:  Database [OverSurgery]    Script Date: 1/11/2017 10:37:03 AM ******/
+/****** Object:  Database [OverSurgery]    Script Date: 1/11/2017 11:29:29 AM ******/
 CREATE DATABASE [OverSurgery]
  CONTAINMENT = NONE
  ON  PRIMARY 
@@ -142,4 +142,136 @@ GO
 ALTER DATABASE [OverSurgery] SET  READ_WRITE 
 GO
 
+/****** Object:  Table [dbo].[Medicine]    Script Date: 1/11/2017 11:28:55 AM ******/
+SET ANSI_NULLS ON
+GO
 
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[Medicine](
+	[medicineID] [int] IDENTITY(1,1) NOT NULL,
+	[medicineName] [varchar](255) NULL,
+	[medicineDescription] [varchar](255) NULL,
+	[exxtendPrescription] [varchar](255) NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[medicineID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
+/****** Object:  Table [dbo].[Patient]    Script Date: 1/11/2017 11:31:05 AM ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[Patient](
+	[patientID] [int] IDENTITY(1,1) NOT NULL,
+	[name] [varchar](255) NOT NULL,
+	[NRIC] [varchar](100) NOT NULL,
+	[dateOfBirth] [varchar](100) NOT NULL,
+	[address] [varchar](500) NOT NULL,
+	[phoneNo] [varchar](100) NULL,
+	[email] [varchar](255) NULL,
+	[gender] [varchar](100) NULL,
+ CONSTRAINT [PK_Patient] PRIMARY KEY CLUSTERED 
+(
+	[patientID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
+/****** Object:  Table [dbo].[Position]    Script Date: 1/11/2017 11:31:26 AM ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[Position](
+	[positionID] [int] IDENTITY(1,1) NOT NULL,
+	[positionName] [varchar](255) NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[positionID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
+/****** Object:  Table [dbo].[Prescription]    Script Date: 1/11/2017 11:31:50 AM ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[Prescription](
+	[prescriptionID] [int] IDENTITY(1,1) NOT NULL,
+	[medicineID] [int] NOT NULL,
+	[staffID] [int] NOT NULL,
+	[patientID] [int] NOT NULL,
+	[dateTime] [varchar](255) NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[prescriptionID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
+/****** Object:  Table [dbo].[Report]    Script Date: 1/11/2017 11:32:02 AM ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[Report](
+	[reportID] [int] IDENTITY(1,1) NOT NULL,
+	[staffID] [nchar](225) NOT NULL,
+	[patientID] [nchar](225) NOT NULL,
+	[description] [nchar](500) NULL,
+	[remarks] [nchar](500) NULL,
+	[dateTime] [datetime] NOT NULL,
+	[appointmetID] [nchar](10) NULL
+) ON [PRIMARY]
+GO
+
+/****** Object:  Table [dbo].[Staff]    Script Date: 1/11/2017 11:32:12 AM ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[Staff](
+	[staffID] [int] IDENTITY(1,1) NOT NULL,
+	[name] [varchar](255) NOT NULL,
+	[workSchedule] [varchar](255) NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[staffID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
+
+/****** Object:  Table [dbo].[StaffPosition]    Script Date: 1/11/2017 11:32:26 AM ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[StaffPosition](
+	[SPID] [int] NOT NULL,
+	[staffID] [int] NOT NULL,
+	[patientID] [int] NOT NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[SPID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
