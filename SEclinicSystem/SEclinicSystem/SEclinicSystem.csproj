@@ -46,6 +46,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Appointment.cs" />
+    <Compile Include="DBconfig.cs" />
     <Compile Include="GeneralPractitioner.cs" />
     <Compile Include="Nurse.cs" />
     <Compile Include="OverSurgerySystem.cs" />
@@ -79,6 +80,12 @@
       <DependentUpon>RegisterNewPatient.cs</DependentUpon>
     </Compile>
     <Compile Include="Staff.cs" />
+    <Compile Include="UpdatePatient.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UpdatePatient.Designer.cs">
+      <DependentUpon>UpdatePatient.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -99,6 +106,9 @@
     </Compile>
     <EmbeddedResource Include="RegisterNewPatient.resx">
       <DependentUpon>RegisterNewPatient.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UpdatePatient.resx">
+      <DependentUpon>UpdatePatient.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

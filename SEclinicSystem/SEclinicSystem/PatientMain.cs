@@ -12,7 +12,8 @@ namespace SEclinicSystem
 {
     public partial class PatientMain : Form
     {
-        OverSurgerySystem run;
+        OverSurgerySystem run = new OverSurgerySystem();
+        Patient patient = new Patient();
 
         public PatientMain()
         {
@@ -23,20 +24,20 @@ namespace SEclinicSystem
 
         private void setValue()
         {
-            string tempQuery = "select [name], [NRIC], [dateOfBirth], [phoneNo], [email], [address], [gender] FROM [Patient] where patientId = '" + PatientSearch.patientID + "'";
+            string tempQuery = "select [name], [NRIC], [dateOfBirth], [phoneNo], [email], [address], [gender] FROM [Patient] where patientId = '" + patient.getID() + "'";
 
             DataTable result = run.getLocalSQLData(tempQuery);
 
             if(result.Rows.Count > 0)
             {
-                lblPatientID.Text = PatientSearch.patientID;
+                lblPatientID.Text = patient.getID();
                 lblPatientName.Text = result.Rows[0]["name"].ToString();
                 lblNRIC.Text = result.Rows[0]["NRIC"].ToString();
                 lblGender.Text = result.Rows[0]["gender"].ToString();
                 lblDOB.Text = result.Rows[0]["dateOfBirth"].ToString();
                 lblPhoneNo.Text = result.Rows[0]["phoneNo"].ToString();
                 lblEmail.Text = result.Rows[0]["email"].ToString();
-                lblAddress.Text = result.Rows[0]["address"].ToString();
+                lblAddress.Text = result.Rows[0]["address"].ToString().Replace("\r\n",Environment.NewLine);
             }
         }
 
@@ -45,6 +46,12 @@ namespace SEclinicSystem
             this.Hide();
             var PatientSearch = new PatientSearch();
             PatientSearch.Show();
+        }
+
+        private void btnUpdateDetails_Click(object sender, EventArgs e)
+        {
+            var UP = new UpdatePatient();
+            UP.Show();
         }
     }
 }

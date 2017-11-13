@@ -55,7 +55,7 @@ namespace SEclinicSystem
             }
             catch (Exception ex)
             {
-                Log("WEB", "getLocalSQLData", "query: " + query + " ; Err :" + ex.ToString());
+                Log("OverSurgery", "getLocalSQLData", "query: " + query + " ; Err :" + ex.ToString());
                 //  MessageBox.Show(ex.ToString());
                 return null;
             }
@@ -115,7 +115,7 @@ namespace SEclinicSystem
             try
             {
                //filePath of the Log folder
-                string filepath = "C:\\Users\\cryst\\Desktop\\Cavin-Team-Software-Engineering\\SEclinicSystem\\Log";
+                string filepath = "C:\\Users\\cryst\\Documents\\Cavin-Team-Software-Engineering\\SEclinicSystem\\Log";
                 string logtime = DateTime.Now.ToString("yyyy_MM_dd");
 
                 if (!Directory.Exists(filepath)) Directory.CreateDirectory(filepath);

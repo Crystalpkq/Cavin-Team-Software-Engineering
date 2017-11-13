@@ -11,44 +11,67 @@ using System.Text.RegularExpressions;
 
 namespace SEclinicSystem
 {
-    public partial class RegisterNewPatient : Form
+    public partial class UpdatePatient : Form
     {
-        Patient patient = new Patient(); 
+        Patient patient = new Patient();
+        OverSurgerySystem run = new OverSurgerySystem();
 
-        public RegisterNewPatient()
+        public UpdatePatient()
         {
             InitializeComponent();
+
+            Clear();
+
             ddlGender.Items.Clear();
             ddlGender.Items.Insert(0, "- Select a gender -");
             ddlGender.Items.Insert(1, "Male");
             ddlGender.Items.Insert(2, "Female");
+
+            setValue();
         }
 
-        //create new patient
-        private void btnCreate_Click(object sender, EventArgs e)
+        private void btnUpdate_Click(object sender, EventArgs e)
         {
-
             if (!checkValidation())
             {
                 return;
             }
 
-            string result = patient.registerPatient(txtPatientName.Text,txtNRIC1.Text+"-"+txtNRIC2.Text+"-"+txtNRIC3.Text, dtpDOB.Value.Date, txtPhoneNo.Text, txtEmail.Text, txtAddress.Text.Replace(Environment.NewLine, "\\n"), ddlGender.SelectedValue.ToString());
+            string result = patient.updatePatientDetails(patient.getID(), txtPatientName.Text, txtNRIC1.Text+"-"+txtNRIC2.Text+"-"+txtNRIC3.Text, dtpDOB.Value.Date, txtPhoneNo.Text, txtEmail.Text, txtAddress.Text.Replace(Environment.NewLine, "\\n"), ddlGender.SelectedValue.ToString()); 
 
-            if (result != "")
+            if(result == "Y")
             {
-                
-                MessageBox.Show("This patient has successfully registered in the system. \n PatientID is "+ result +" .");
-                Clear();
-                this.Hide();
-                var PatientSearch = new PatientSearch();
-                PatientSearch.Show();
-
+                MessageBox.Show("Update patient's details successful!");
+                this.Close();                
             }
-            else
+            else if (result == "N")
             {
-                MessageBox.Show("Failed");
-                Clear();
+                MessageBox.Show("Update patient's details failed!");                
+            }
+        }
+
+        public void setValue()
+        {
+            string tempQuery = "select [name], [NRIC], [dateOfBirth], [phoneNo], [email], [address], [gender] FROM [Patient] where patientId = '" + patient.getID() + "'";
+
+            DataTable result = run.getLocalSQLData(tempQuery);
+
+            if (result.Rows.Count > 0)
+            {
+                txtPatientName.Text = result.Rows[0]["name"].ToString();
+
+                //setting NRIC
+                string NRIC = result.Rows[0]["NRIC"].ToString();
+                string[] nricArray = NRIC.Split('-');
+                txtNRIC1.Text = nricArray[0];
+                txtNRIC2.Text = nricArray[1];
+                txtNRIC3.Text = nricArray[2];               
+                
+                ddlGender.SelectedIndex = ddlGender.Items.IndexOf(result.Rows[0]["gender"].ToString());
+                dtpDOB.Value = (DateTime)result.Rows[0]["dateOfBirth"];
+                txtPhoneNo.Text = result.Rows[0]["phoneNo"].ToString();
+                txtEmail.Text = result.Rows[0]["email"].ToString();
+                txtAddress.Text = result.Rows[0]["address"].ToString().Replace("\r\n", Environment.NewLine);
             }
         }
 
@@ -63,7 +86,7 @@ namespace SEclinicSystem
                 txtPatientName.Focus();
                 return false;
             }
-            else if(txtPatientName.Text.Trim() != "")
+            else if (txtPatientName.Text.Trim() != "")
             {
                 Regex emp1 = new Regex("^[a-z-A-Z]+$");
 
@@ -97,7 +120,7 @@ namespace SEclinicSystem
             {
                 Regex emp1 = new Regex("^[0-9]");
 
-                if(txtNRIC1.Text.Length < 6)
+                if (txtNRIC1.Text.Length < 6)
                 {
                     MessageBox.Show("Need 6 digits");
                     txtNRIC1.Focus();
@@ -169,7 +192,7 @@ namespace SEclinicSystem
             {
                 Regex emp1 = new Regex("^[0-9]");
 
-                if(txtPhoneNo.Text.Length < 10)
+                if (txtPhoneNo.Text.Length < 10)
                 {
                     MessageBox.Show("Minimum 10 digits");
                     txtPhoneNo.Focus();
@@ -180,7 +203,7 @@ namespace SEclinicSystem
                     MessageBox.Show("Only numeric letters");
                     txtPhoneNo.Focus();
                     return false;
-                }                
+                }
             }
             // Email validation
             else if (txtEmail.Text.Trim() == "")
@@ -189,7 +212,7 @@ namespace SEclinicSystem
                 txtEmail.Focus();
                 return false;
             }
-            else if(txtEmail.Text.Trim() != "")
+            else if (txtEmail.Text.Trim() != "")
             {
                 Regex emp1 = new Regex(@"\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*");
 
@@ -199,7 +222,7 @@ namespace SEclinicSystem
                     txtEmail.Focus();
                     return false;
                 }
-                
+
             }
             // Address validation
             else if (txtAddress.Text.Trim() == "")
@@ -223,11 +246,6 @@ namespace SEclinicSystem
             txtPhoneNo.Text = "";
             txtEmail.Text = "";
             txtAddress.Text = "";
-        }
-
-        private void btnBack_Click(object sender, EventArgs e)
-        {
-            this.Hide();
         }
     }
 }

@@ -1,0 +1,11 @@
+1/11/2017 3:04:30 PM      : WriteDBLog                     : Err :System.Data.SqlClient.SqlException (0x80131904): Incorrect syntax near the keyword 'VALUES'.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlCommand.RunExecuteNonQueryTds(String methodName, Boolean async, Int32 timeout, Boolean asyncWrite)
+   at System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   at System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   at SEclinicSystem.OverSurgerySystem.WriteData(String query) in C:\Users\cryst\Documents\Cavin-Team-Software-Engineering\SEclinicSystem\SEclinicSystem\OverSurgerySystem.cs:line 89
+ClientConnectionId:e1038ebf-6ee1-4730-bbc4-ecddd502c717
+Error Number:156,State:1,Class:15

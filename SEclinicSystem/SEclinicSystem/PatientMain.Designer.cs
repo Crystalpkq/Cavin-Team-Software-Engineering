@@ -220,6 +220,7 @@
             this.btnUpdateDetails.TabIndex = 16;
             this.btnUpdateDetails.Text = "Update Details";
             this.btnUpdateDetails.UseVisualStyleBackColor = true;
+            this.btnUpdateDetails.Click += new System.EventHandler(this.btnUpdateDetails_Click);
             // 
             // lblGender
             // 
