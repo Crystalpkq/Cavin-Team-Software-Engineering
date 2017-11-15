@@ -13,7 +13,8 @@ namespace SEclinicSystem
     public partial class PatientSearch : Form
     {
 
-        Patient patient = new Patient();        
+        Patient patient = new Patient();
+        PatientHandler ph = new PatientHandler();
 
         public PatientSearch()
         {
@@ -35,11 +36,15 @@ namespace SEclinicSystem
             {
                 if (txtPatientID.Text != "")
                 {
-                    result = patient.searchPatient(txtPatientID.Text, null, null, null);
+                    patient.PatientID = txtPatientID.Text;
+                    patient.Name = "";
+                    patient.DOB = new DateTime();
+                    patient.Address = "";
 
+                    result = ph.searchPatient(patient);
+                    
                     if (result == "Yes")
-                    {
-                        patient.setID(txtPatientID.Text, null, new DateTime(), null);
+                    {                        
                         this.Hide();
                         var PatientMain = new PatientMain();
                         PatientMain.Show();
@@ -57,11 +62,15 @@ namespace SEclinicSystem
             {
                 if (txtPatientName.Text != "" && dtpDOB.Value.Date != DateTime.Now.Date)
                 {
-                    result = patient.searchPatient(null, txtPatientName.Text, dtpDOB.Value.Date.ToString(), null);
+                    patient.PatientID = "";
+                    patient.Name = txtPatientName.Text;
+                    patient.DOB = dtpDOB.Value.Date;
+                    patient.Address = "";
 
+                    result = ph.searchPatient(patient);
+                   
                     if (result == "Yes")
-                    {
-                        patient.setID(null, txtPatientName.Text, dtpDOB.Value.Date, null);                       
+                    {                                 
                         this.Hide();
                         var PatientMain = new PatientMain();
                         PatientMain.Show();
@@ -79,11 +88,15 @@ namespace SEclinicSystem
             {
                 if (txtPatientName.Text != "" && txtAddress.Text != "")
                 {
-                    result = patient.searchPatient(null, txtPatientName.Text, null, txtAddress.Text.Replace(Environment.NewLine, "\\n"));
+                    patient.PatientID = "";
+                    patient.Name = txtPatientName.Text;
+                    patient.DOB = new DateTime();
+                    patient.Address = txtAddress.Text.Replace(Environment.NewLine, "\\n");
 
+                    result = ph.searchPatient(patient);
+                    
                     if (result == "Yes")
                     {
-                        patient.setID(null, txtPatientName.Text, new DateTime(), txtAddress.Text.Replace(Environment.NewLine, "\\n"));                        
                         this.Hide();
                         var PatientMain = new PatientMain();
                         PatientMain.Show();

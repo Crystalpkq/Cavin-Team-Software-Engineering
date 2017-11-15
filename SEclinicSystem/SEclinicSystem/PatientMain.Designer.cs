@@ -47,6 +47,8 @@
             this.btnUpdateDetails = new System.Windows.Forms.Button();
             this.lblGender = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
+            this.btnSearchReport = new System.Windows.Forms.Button();
+            this.btnNewReport = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // monthCalendar1
@@ -243,11 +245,31 @@
             this.label9.TabIndex = 17;
             this.label9.Text = "Gender:";
             // 
+            // btnSearchReport
+            // 
+            this.btnSearchReport.Location = new System.Drawing.Point(769, 455);
+            this.btnSearchReport.Name = "btnSearchReport";
+            this.btnSearchReport.Size = new System.Drawing.Size(145, 35);
+            this.btnSearchReport.TabIndex = 19;
+            this.btnSearchReport.Text = "Search Report";
+            this.btnSearchReport.UseVisualStyleBackColor = true;
+            // 
+            // btnNewReport
+            // 
+            this.btnNewReport.Location = new System.Drawing.Point(560, 455);
+            this.btnNewReport.Name = "btnNewReport";
+            this.btnNewReport.Size = new System.Drawing.Size(151, 35);
+            this.btnNewReport.TabIndex = 20;
+            this.btnNewReport.Text = "New Report";
+            this.btnNewReport.UseVisualStyleBackColor = true;
+            // 
             // PatientMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(926, 518);
+            this.Controls.Add(this.btnNewReport);
+            this.Controls.Add(this.btnSearchReport);
             this.Controls.Add(this.lblGender);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.btnUpdateDetails);
@@ -295,5 +317,7 @@
         private System.Windows.Forms.Button btnUpdateDetails;
         private System.Windows.Forms.Label lblGender;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Button btnSearchReport;
+        private System.Windows.Forms.Button btnNewReport;
     }
 }

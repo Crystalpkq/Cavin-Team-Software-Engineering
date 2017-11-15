@@ -13,7 +13,8 @@ namespace SEclinicSystem
 {
     public partial class RegisterNewPatient : Form
     {
-        Patient patient = new Patient(); 
+        Patient patient = new Patient();
+        PatientHandler ph = new PatientHandler();
 
         public RegisterNewPatient()
         {
@@ -33,8 +34,16 @@ namespace SEclinicSystem
                 return;
             }
 
-            string result = patient.registerPatient(txtPatientName.Text,txtNRIC1.Text+"-"+txtNRIC2.Text+"-"+txtNRIC3.Text, dtpDOB.Value.Date, txtPhoneNo.Text, txtEmail.Text, txtAddress.Text.Replace(Environment.NewLine, "\\n"), ddlGender.SelectedValue.ToString());
+            patient.Name = txtPatientName.Text;
+            patient.NRIC = txtNRIC1.Text + "-" + txtNRIC2.Text + "-" + txtNRIC3.Text;
+            patient.DOB = dtpDOB.Value.Date;
+            patient.PhoneNo = txtPhoneNo.Text;
+            patient.Email = txtEmail.Text;
+            patient.Address = txtAddress.Text.Replace(Environment.NewLine, "\\n");
+            patient.Gender = ddlGender.SelectedValue.ToString();
 
+            string result = ph.registerPatient(patient);
+            
             if (result != "")
             {
                 
