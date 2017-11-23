@@ -1,4 +1,0 @@
-07/11/17 3:04:21 PM       : getLocalSQLData                : query: SELECT* FROM login where username = 'admin' AND password = '1' ; Err :System.NullReferenceException: Object reference not set to an instance of an object.
-   at SEclinicSystem.OverSurgerySystem.getLocalSQLDataCount(String query) in C:\Users\LENOVO\Desktop\ARU\Software Engineer\Cavin-Team-Software-Engineering\SEclinicSystem\SEclinicSystem\OverSurgerySystem.cs:line 85
-07/11/17 3:04:29 PM       : getLocalSQLData                : query: SELECT* FROM login where username = 'wrong' AND password = '1' ; Err :System.NullReferenceException: Object reference not set to an instance of an object.
-   at SEclinicSystem.OverSurgerySystem.getLocalSQLDataCount(String query) in C:\Users\LENOVO\Desktop\ARU\Software Engineer\Cavin-Team-Software-Engineering\SEclinicSystem\SEclinicSystem\OverSurgerySystem.cs:line 85
