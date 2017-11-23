@@ -49,6 +49,8 @@
             this.label9 = new System.Windows.Forms.Label();
             this.btnSearchReport = new System.Windows.Forms.Button();
             this.btnNewReport = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // monthCalendar1
@@ -256,18 +258,40 @@
             // 
             // btnNewReport
             // 
-            this.btnNewReport.Location = new System.Drawing.Point(560, 455);
+            this.btnNewReport.Location = new System.Drawing.Point(586, 455);
             this.btnNewReport.Name = "btnNewReport";
             this.btnNewReport.Size = new System.Drawing.Size(151, 35);
             this.btnNewReport.TabIndex = 20;
             this.btnNewReport.Text = "New Report";
             this.btnNewReport.UseVisualStyleBackColor = true;
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(21, 455);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(151, 35);
+            this.button1.TabIndex = 21;
+            this.button1.Text = "Search Prescription";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(204, 455);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(151, 35);
+            this.button2.TabIndex = 22;
+            this.button2.Text = "Add Prescription";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
             // PatientMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(926, 518);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.btnNewReport);
             this.Controls.Add(this.btnSearchReport);
             this.Controls.Add(this.lblGender);
@@ -319,5 +343,7 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Button btnSearchReport;
         private System.Windows.Forms.Button btnNewReport;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
     }
 }

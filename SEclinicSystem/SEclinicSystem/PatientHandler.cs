@@ -21,7 +21,7 @@ namespace SEclinicSystem
                 if (result != null)
                 {
                     if (result.Rows.Count > 0)
-                    {                        
+                    {   
                         return "Yes";
                     }
                     else

@@ -32,7 +32,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.lblText = new System.Windows.Forms.Label();
-            this.btnAddNewPrescription = new System.Windows.Forms.Button();
+            this.btnBack = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -73,22 +73,22 @@
             this.lblText.TabIndex = 3;
             this.lblText.Text = "* Prescription Not Found*";
             // 
-            // btnAddNewPrescription
+            // btnBack
             // 
-            this.btnAddNewPrescription.Location = new System.Drawing.Point(347, 507);
-            this.btnAddNewPrescription.Name = "btnAddNewPrescription";
-            this.btnAddNewPrescription.Size = new System.Drawing.Size(190, 43);
-            this.btnAddNewPrescription.TabIndex = 4;
-            this.btnAddNewPrescription.Text = "Add New Prescription";
-            this.btnAddNewPrescription.UseVisualStyleBackColor = true;
-            this.btnAddNewPrescription.Click += new System.EventHandler(this.btnAddNewPrescription_Click);
+            this.btnBack.Location = new System.Drawing.Point(407, 512);
+            this.btnBack.Name = "btnBack";
+            this.btnBack.Size = new System.Drawing.Size(108, 33);
+            this.btnBack.TabIndex = 5;
+            this.btnBack.Text = "Back";
+            this.btnBack.UseVisualStyleBackColor = true;
+            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
             // PrescriptionSearchAdd
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(910, 573);
-            this.Controls.Add(this.btnAddNewPrescription);
+            this.Controls.Add(this.btnBack);
             this.Controls.Add(this.lblText);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.label1);
@@ -107,6 +107,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Label lblText;
-        private System.Windows.Forms.Button btnAddNewPrescription;
+        private System.Windows.Forms.Button btnBack;
     }
 }

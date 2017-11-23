@@ -36,29 +36,7 @@ namespace SEclinicSystem
             {
                 return new DataTable();
             }
-        }
-
-        public bool checkPrescriptionLimit(Medicine medicine)
-        {
-            DataTable result = run.getLocalSQLData(@"SELECT top 1 [UnlimitedPrescription] FROM [Medicine] a with(nolock)  where medicineID  ='" + prescription.Medicine.MedicineID + "' order by medicineID asc");
-
-            if (result != null)
-            {
-                if (result.Rows.Count > 0)
-                {
-                    medicine.UnlimitedPrescription = (bool)result.Rows[0]["unlimitedPrescription"];
-                    return medicine.UnlimitedPrescription;
-                }
-                else
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                return false;
-            }
-        }
+        }     
 
 
     }

@@ -57,7 +57,6 @@ namespace SEclinicSystem
             else
             {
                 MessageBox.Show("Failed");
-                Clear();
             }
         }
 

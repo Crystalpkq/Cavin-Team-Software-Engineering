@@ -86,7 +86,25 @@
       <DependentUpon>PatientSearch.cs</DependentUpon>
     </Compile>
     <Compile Include="Prescription.cs" />
+    <Compile Include="PrescriptionAddNew.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PrescriptionAddNew.Designer.cs">
+      <DependentUpon>PrescriptionAddNew.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PrescriptionDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PrescriptionDetails.Designer.cs">
+      <DependentUpon>PrescriptionDetails.cs</DependentUpon>
+    </Compile>
     <Compile Include="PrescriptionHandler.cs" />
+    <Compile Include="PrescriptionSearchAdd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PrescriptionSearchAdd.Designer.cs">
+      <DependentUpon>PrescriptionSearchAdd.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Receptionist.cs" />
@@ -117,6 +135,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="PatientSearch.resx">
       <DependentUpon>PatientSearch.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PrescriptionAddNew.resx">
+      <DependentUpon>PrescriptionAddNew.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PrescriptionDetails.resx">
+      <DependentUpon>PrescriptionDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PrescriptionSearchAdd.resx">
+      <DependentUpon>PrescriptionSearchAdd.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

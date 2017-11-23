@@ -13,14 +13,14 @@ namespace SEclinicSystem
 {
     public partial class UpdatePatient : Form
     {
-        Patient patient = new Patient();
+        Patient p = new Patient();
         PatientHandler ph = new PatientHandler();
         OverSurgerySystem run = new OverSurgerySystem();
 
-        public UpdatePatient()
+        public UpdatePatient(Patient patient)
         {
             InitializeComponent();
-
+            p = patient;
             Clear();
 
             ddlGender.Items.Clear();
@@ -38,15 +38,15 @@ namespace SEclinicSystem
                 return;
             }
 
-            patient.Name = txtPatientName.Text;
-            patient.NRIC = txtNRIC1.Text + "-" + txtNRIC2.Text + "-" + txtNRIC3.Text;
-            patient.DOB = dtpDOB.Value.Date;
-            patient.PhoneNo = txtPhoneNo.Text;
-            patient.Email = txtEmail.Text;
-            patient.Address = txtAddress.Text.Replace(Environment.NewLine, "\\n");
-            patient.Gender = ddlGender.SelectedValue.ToString();
+            p.Name = txtPatientName.Text;
+            p.NRIC = txtNRIC1.Text + "-" + txtNRIC2.Text + "-" + txtNRIC3.Text;
+            p.DOB = dtpDOB.Value.Date;
+            p.PhoneNo = txtPhoneNo.Text;
+            p.Email = txtEmail.Text;
+            p.Address = txtAddress.Text.Replace(Environment.NewLine, "\\n");
+            p.Gender = ddlGender.SelectedValue.ToString();
 
-            string result = ph.updatePatientDetails(patient); 
+            string result = ph.updatePatientDetails(p); 
 
             if(result == "Y")
             {
@@ -62,16 +62,16 @@ namespace SEclinicSystem
         public void setValue()
         {           
             //setting NRIC
-            string[] nricArray = patient.NRIC.Split('-');
+            string[] nricArray = p.NRIC.Split('-');
             txtNRIC1.Text = nricArray[0];
             txtNRIC2.Text = nricArray[1];
             txtNRIC3.Text = nricArray[2];               
                 
-            ddlGender.SelectedIndex = ddlGender.Items.IndexOf(patient.Gender);
-            dtpDOB.Value = (DateTime)patient.DOB;
-            txtPhoneNo.Text = patient.PhoneNo;
-            txtEmail.Text = patient.Email;
-            txtAddress.Text = patient.Address;            
+            ddlGender.SelectedIndex = ddlGender.Items.IndexOf(p.Gender);
+            dtpDOB.Value = (DateTime)p.DOB;
+            txtPhoneNo.Text = p.PhoneNo;
+            txtEmail.Text = p.Email;
+            txtAddress.Text = p.Address;            
         }
 
         public bool checkValidation()

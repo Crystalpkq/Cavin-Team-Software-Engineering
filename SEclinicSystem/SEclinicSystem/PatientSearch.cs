@@ -46,13 +46,12 @@ namespace SEclinicSystem
                     if (result == "Yes")
                     {                        
                         this.Hide();
-                        var PatientMain = new PatientMain();
+                        var PatientMain = new PatientMain(patient);
                         PatientMain.Show();
                     }
                     else if (result == "No")
                     {
                         MessageBox.Show("Patient Not Found");
-                        ResetForm();
 
                     }
                 }
@@ -72,13 +71,12 @@ namespace SEclinicSystem
                     if (result == "Yes")
                     {                                 
                         this.Hide();
-                        var PatientMain = new PatientMain();
+                        var PatientMain = new PatientMain(patient);
                         PatientMain.Show();
                     }
                     else if (result == "No")
                     {
                         MessageBox.Show("Patient Not Found");
-                        ResetForm();
 
                     }
                 }
@@ -98,14 +96,12 @@ namespace SEclinicSystem
                     if (result == "Yes")
                     {
                         this.Hide();
-                        var PatientMain = new PatientMain();
+                        var PatientMain = new PatientMain(patient);
                         PatientMain.Show();
                     }
                     else if (result == "No")
                     {
                         MessageBox.Show("Patient Not Found");
-                        ResetForm();
-
                     }
                 }
                 
