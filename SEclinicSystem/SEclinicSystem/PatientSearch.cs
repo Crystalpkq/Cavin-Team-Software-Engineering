@@ -14,11 +14,7 @@ namespace SEclinicSystem
     {
 
         Patient patient = new Patient();
-
-        public static string patientID = "";
-        public static string patientName = "";
-        public static string DOB = "";
-        public static string address = "";
+        PatientHandler ph = new PatientHandler();
 
         public PatientSearch()
         {
@@ -31,72 +27,86 @@ namespace SEclinicSystem
         {
             string result;
 
-            if (txtPatientID.Text != "" && txtPatientName.Text != "" && txtAddress.Text != "" && txtDOB.Text != "")
+            if(comboBox1.SelectedIndex == 0)
             {
-                MessageBox.Show("Search only PatientID OR Patient Name and Address OR Name and Date Of Birth!");
+                MessageBox.Show("Please select a register method and fill in the fields.");
             }
             //search by ID
-            else if (txtPatientID.Text != "")
+            else if (comboBox1.SelectedIndex == 1)
             {
-                result = patient.searchPatient(txtPatientID.Text,null,null,null);
+                if (txtPatientID.Text != "")
+                {
+                    patient.PatientID = txtPatientID.Text;
+                    patient.Name = "";
+                    patient.DOB = new DateTime();
+                    patient.Address = "";
 
-                if(result == "Yes")
-                {
-                    patientID = txtPatientID.Text; 
-                    this.Hide();
-                    var PatientMain = new PatientMain();
-                    PatientMain.Show();
-                }
-                else if(result == "No")
-                {
-                    MessageBox.Show("Patient Not Found");
-                    ResetForm();
+                    result = ph.searchPatient(patient);
                     
+                    if (result == "Yes")
+                    {                        
+                        this.Hide();
+                        var PatientMain = new PatientMain(patient);
+                        PatientMain.Show();
+                    }
+                    else if (result == "No")
+                    {
+                        MessageBox.Show("Patient Not Found");
+
+                    }
                 }
             }
             //search by name & DOB
-            else if (txtPatientName.Text != "" && txtDOB.Text != "")
+            else if(comboBox1.SelectedIndex == 2)
             {
-                result = patient.searchPatient(null, txtPatientName.Text, txtDOB.Text, null);
-
-                if (result == "Yes")
+                if (txtPatientName.Text != "" && dtpDOB.Value.Date != DateTime.Now.Date)
                 {
-                    patientID = patient.getID(txtPatientName.Text, txtDOB.Text,null);
-                    this.Hide();
-                    var PatientMain = new PatientMain();
-                    PatientMain.Show();
-                }
-                else if (result == "No")
-                {
-                    MessageBox.Show("Patient Not Found");
-                    ResetForm();
+                    patient.PatientID = "";
+                    patient.Name = txtPatientName.Text;
+                    patient.DOB = dtpDOB.Value.Date;
+                    patient.Address = "";
 
+                    result = ph.searchPatient(patient);
+                   
+                    if (result == "Yes")
+                    {                                 
+                        this.Hide();
+                        var PatientMain = new PatientMain(patient);
+                        PatientMain.Show();
+                    }
+                    else if (result == "No")
+                    {
+                        MessageBox.Show("Patient Not Found");
+
+                    }
                 }
-            }
+            }            
             //search by name & address
-            else if (txtPatientName.Text != "" && txtAddress.Text != "")
+            else if(comboBox1.SelectedIndex == 3)
             {
-                result = patient.searchPatient(null, txtPatientName.Text, null, txtAddress.Text.Replace(Environment.NewLine, "\\n"));
-
-                if (result == "Yes")
+                if (txtPatientName.Text != "" && txtAddress.Text != "")
                 {
-                    patientID = patient.getID(txtPatientName.Text, null, txtAddress.Text.Replace(Environment.NewLine, "\\n"));
-                    this.Hide();
-                    var PatientMain = new PatientMain();
-                    PatientMain.Show();                    
-                }
-                else if (result == "No")
-                {
-                    MessageBox.Show("Patient Not Found");
-                    ResetForm();
+                    patient.PatientID = "";
+                    patient.Name = txtPatientName.Text;
+                    patient.DOB = new DateTime();
+                    patient.Address = txtAddress.Text.Replace(Environment.NewLine, "\\n");
 
+                    result = ph.searchPatient(patient);
+                    
+                    if (result == "Yes")
+                    {
+                        this.Hide();
+                        var PatientMain = new PatientMain(patient);
+                        PatientMain.Show();
+                    }
+                    else if (result == "No")
+                    {
+                        MessageBox.Show("Patient Not Found");
+                    }
                 }
+                
             }
-            else if (txtPatientID.Text == "" || txtPatientName.Text == "" || txtAddress.Text == "" || txtDOB.Text == "")
-            {
-                MessageBox.Show("Please fill in PatientID OR Patient Name and Address OR Name and Date Of Birth!");
-                ResetForm();
-            }
+            
         }
 
         //Cancel button
@@ -115,11 +125,53 @@ namespace SEclinicSystem
 
         private void ResetForm()
         {
+            comboBox1.Items.Clear();
+            comboBox1.Items.Insert(0, "- Select a search method -");
+            comboBox1.Items.Insert(1, "Patient ID");
+            comboBox1.Items.Insert(2, "Patient Name & Date of Birth");
+            comboBox1.Items.Insert(3, "Patient Name & Address");
+            
             txtPatientID.Text = "";
+            txtPatientID.Enabled = false;
             txtPatientName.Text = "";
+            txtPatientName.Enabled = false;
             txtAddress.Text = "";
-            txtDOB.Text = "";
+            txtAddress.Enabled = false;
+            dtpDOB.Value = DateTime.Now;
+            dtpDOB.Enabled = false;
         }
 
+        //search patient by
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if(comboBox1.SelectedIndex == 0)
+            {
+                txtPatientID.Enabled = false;
+                txtPatientName.Enabled = false;
+                txtAddress.Enabled = false;
+                dtpDOB.Enabled = false;
+            }
+            else if(comboBox1.SelectedIndex == 1)
+            {
+                txtPatientID.Enabled = true;
+                txtPatientName.Enabled = false;
+                txtAddress.Enabled = false;
+                dtpDOB.Enabled = false;
+            }
+            else if(comboBox1.SelectedIndex == 2)
+            {
+                txtPatientID.Enabled = false;
+                txtPatientName.Enabled = true;
+                txtAddress.Enabled = false;
+                dtpDOB.Enabled = true;
+            }
+            else if(comboBox1.SelectedIndex == 3)
+            {
+                txtPatientID.Enabled = false;
+                txtPatientName.Enabled = true;
+                txtAddress.Enabled = true;
+                dtpDOB.Enabled = false;
+            }
+        }
     }
 }

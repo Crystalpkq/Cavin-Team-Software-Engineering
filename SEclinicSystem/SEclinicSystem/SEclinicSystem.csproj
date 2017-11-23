@@ -1,0 +1,184 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{D79A8CE4-5624-4644-8580-43F2B2800019}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SEclinicSystem</RootNamespace>
+    <AssemblyName>SEclinicSystem</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Appointment.cs" />
+    <Compile Include="AppointmentHandler.cs" />
+    <Compile Include="AppointmentMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AppointmentMain.Designer.cs">
+      <DependentUpon>AppointmentMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GeneralPractitioner.cs" />
+    <Compile Include="Log.cs" />
+    <Compile Include="loginForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="loginForm.Designer.cs">
+      <DependentUpon>loginForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Main.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Main.Designer.cs">
+      <DependentUpon>Main.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Medicine.cs" />
+    <Compile Include="MedicineHandler.cs" />
+    <Compile Include="Nurse.cs" />
+    <Compile Include="OverSurgerySystem.cs" />
+    <Compile Include="Patient.cs" />
+    <Compile Include="PatientHandler.cs" />
+    <Compile Include="PatientMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PatientMain.Designer.cs">
+      <DependentUpon>PatientMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PatientSearch.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PatientSearch.Designer.cs">
+      <DependentUpon>PatientSearch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Prescription.cs" />
+    <Compile Include="PrescriptionAddNew.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PrescriptionAddNew.Designer.cs">
+      <DependentUpon>PrescriptionAddNew.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PrescriptionDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PrescriptionDetails.Designer.cs">
+      <DependentUpon>PrescriptionDetails.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PrescriptionHandler.cs" />
+    <Compile Include="PrescriptionSearchAdd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PrescriptionSearchAdd.Designer.cs">
+      <DependentUpon>PrescriptionSearchAdd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Receptionist.cs" />
+    <Compile Include="RegisterNewPatient.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RegisterNewPatient.Designer.cs">
+      <DependentUpon>RegisterNewPatient.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Staff.cs" />
+    <Compile Include="UpdatePatient.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UpdatePatient.Designer.cs">
+      <DependentUpon>UpdatePatient.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="AppointmentMain.resx">
+      <DependentUpon>AppointmentMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="loginForm.resx">
+      <DependentUpon>loginForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main.resx">
+      <DependentUpon>Main.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientMain.resx">
+      <DependentUpon>PatientMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientSearch.resx">
+      <DependentUpon>PatientSearch.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PrescriptionAddNew.resx">
+      <DependentUpon>PrescriptionAddNew.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PrescriptionDetails.resx">
+      <DependentUpon>PrescriptionDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PrescriptionSearchAdd.resx">
+      <DependentUpon>PrescriptionSearchAdd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="RegisterNewPatient.resx">
+      <DependentUpon>RegisterNewPatient.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UpdatePatient.resx">
+      <DependentUpon>UpdatePatient.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

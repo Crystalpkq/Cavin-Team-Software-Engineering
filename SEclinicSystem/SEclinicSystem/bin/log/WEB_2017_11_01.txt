@@ -1,0 +1,11 @@
+01/11/17 10:19:04 PM      : WriteDBLog                     : Err :System.Data.SqlClient.SqlException (0x80131904): Incorrect syntax near 'Patient'.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlCommand.RunExecuteNonQueryTds(String methodName, Boolean async, Int32 timeout, Boolean asyncWrite)
+   at System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean asyncWrite)
+   at System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   at SEclinicSystem.DBconfig.WriteData(String query) in C:\Users\LENOVO\Desktop\ARU\Software Engineer\Cavin-Team-Software-Engineering\SEclinicSystem\SEclinicSystem\DBconfig.cs:line 123
+ClientConnectionId:4146f7d4-a1a2-4192-aa44-9ea54063e669
+Error Number:102,State:1,Class:15
