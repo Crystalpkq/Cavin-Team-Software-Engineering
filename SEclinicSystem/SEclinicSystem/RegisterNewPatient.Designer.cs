@@ -45,6 +45,11 @@
             this.txtPhoneNo = new System.Windows.Forms.TextBox();
             this.ddlGender = new System.Windows.Forms.ComboBox();
             this.dtpDOB = new System.Windows.Forms.DateTimePicker();
+            this.txtNRIC2 = new System.Windows.Forms.TextBox();
+            this.txtNRIC3 = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.txtNRIC1 = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // label1
@@ -181,6 +186,7 @@
             // txtPhoneNo
             // 
             this.txtPhoneNo.Location = new System.Drawing.Point(209, 263);
+            this.txtPhoneNo.MaxLength = 12;
             this.txtPhoneNo.Name = "txtPhoneNo";
             this.txtPhoneNo.Size = new System.Drawing.Size(286, 22);
             this.txtPhoneNo.TabIndex = 8;
@@ -202,11 +208,58 @@
             this.dtpDOB.Size = new System.Drawing.Size(286, 22);
             this.dtpDOB.TabIndex = 17;
             // 
+            // txtNRIC2
+            // 
+            this.txtNRIC2.Location = new System.Drawing.Point(333, 123);
+            this.txtNRIC2.MaxLength = 2;
+            this.txtNRIC2.Name = "txtNRIC2";
+            this.txtNRIC2.Size = new System.Drawing.Size(44, 22);
+            this.txtNRIC2.TabIndex = 18;
+            // 
+            // txtNRIC3
+            // 
+            this.txtNRIC3.Location = new System.Drawing.Point(394, 123);
+            this.txtNRIC3.MaxLength = 6;
+            this.txtNRIC3.Name = "txtNRIC3";
+            this.txtNRIC3.Size = new System.Drawing.Size(101, 22);
+            this.txtNRIC3.TabIndex = 19;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(317, 126);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(13, 17);
+            this.label9.TabIndex = 20;
+            this.label9.Text = "-";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(381, 126);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(13, 17);
+            this.label10.TabIndex = 21;
+            this.label10.Text = "-";
+            // 
+            // txtNRIC1
+            // 
+            this.txtNRIC1.Location = new System.Drawing.Point(209, 123);
+            this.txtNRIC1.MaxLength = 6;
+            this.txtNRIC1.Name = "txtNRIC1";
+            this.txtNRIC1.Size = new System.Drawing.Size(101, 22);
+            this.txtNRIC1.TabIndex = 22;
+            // 
             // RegisterNewPatient
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(615, 565);
+            this.Controls.Add(this.txtNRIC1);
+            this.Controls.Add(this.label10);
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.txtNRIC3);
+            this.Controls.Add(this.txtNRIC2);
             this.Controls.Add(this.dtpDOB);
             this.Controls.Add(this.ddlGender);
             this.Controls.Add(this.label8);
@@ -250,5 +303,12 @@
         private System.Windows.Forms.TextBox txtPhoneNo;
         private System.Windows.Forms.ComboBox ddlGender;
         private System.Windows.Forms.DateTimePicker dtpDOB;
+
+        private System.Windows.Forms.TextBox txtNRIC2;
+        private System.Windows.Forms.TextBox txtNRIC3;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.TextBox txtNRIC1;
+
     }
 }

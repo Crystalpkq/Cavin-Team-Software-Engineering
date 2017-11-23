@@ -57,9 +57,7 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="PatientMain.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="PatientMain.cs" />
     <Compile Include="PatientMain.Designer.cs">
       <DependentUpon>PatientMain.cs</DependentUpon>
     </Compile>
